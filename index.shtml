@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>如品之茗 - 春风不语即随本心</title>
+    <meta name="description" content="这里是如品之茗的个人主页，记录数字时代，沉思生活本质，怀着热忱，惊叹万物。">
+    <meta name="keywords" content="如品之茗,个人主页,RPZM">
+    <link rel="icon" type="image/x-icon" href="https://pic1.imgdb.cn/item/69550a398801094e3ab504bc.webp">
+    
+    <!-- CSS文件 -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/friends.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    
+    <!-- Apple移动端设置 -->
+    <meta name="apple-mobile-web-app-title" content="如品之茗的主页">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+</head>
+<body oncontextmenu="return false" onkeydown="return disableF12(event)" onkeypress="return disableF12(event)">
+    <!-- 背景层 -->
+    <div id="gradientBg" class="gradient-bg active"></div>
+    
+    <!-- 朋友链接提示框 -->
+    <div id="friendLinkTip" class="friend-link-tip">
+        <div class="tip-header">
+            <div class="tip-icon">
+                <i class="fas fa-external-link-alt"></i>
+            </div>
+            <h3 class="tip-title" id="tipTitle">即将离开本站</h3>
+        </div>
+        <div class="tip-content" id="tipContent">
+            <p>您即将访问朋友网站：</p>
+            <div class="tip-url" id="tipUrl">https://example.com</div>
+            <p>请注意：</p>
+            <ul>
+                <li>该链接将打开新的浏览器窗口</li>
+                <li>请注意保护个人隐私信息</li>
+                <li>访问内容由第三方网站负责</li>
+                <li>请自行判断信息真实性和安全性</li>
+            </ul>
+        </div>
+        <div class="tip-buttons">
+            <button class="tip-btn cancel" onclick="hideFriendTip()">取消</button>
+            <button class="tip-btn confirm" onclick="confirmFriendLink()">继续访问</button>
+        </div>
+    </div>
+    
+    <!-- 遮罩层 -->
+    <div id="overlay" class="overlay" onclick="hideFriendTip()"></div>
+
+    <!-- 我的米表模态框 -->
+    <div id="domainModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">我的米表</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- 我的朋友模态框 -->
+    <div id="friendsModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="friendsModalTitle">我的朋友</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="friendsModalBody"></div>
+        </div>
+    </div>
+
+    <!-- 免责声明模态框 -->
+    <div id="disclaimerModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>免责声明</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="disclaimerBody"></div>
+        </div>
+    </div>
+
+    <!-- 建站历史模态框 -->
+    <div id="historyModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="historyModalTitle">建站历史</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="historyModalBody"></div>
+        </div>
+    </div>
+
+    <!-- 主内容区域 -->
+    <div id="main" class="container">
+        <div class="row my-card justify-content-center">
+            <div class="col-lg-4 photo-bg hide-sm"></div>
+            <img src="./assets/image/phone-avatar.jpg" class="center-image" alt="头像">
+            <div class="col-lg-8 card" style="position: relative;">
+                <!-- 顶部功能按钮 -->
+                <div class="top-buttons-container">
+                    <div class="language-switcher" id="language-switcher">
+                        <div class="lang-btn-icon" id="langIconBtn" onclick="toggleLangDropdown()">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="lang-dropdown" id="langDropdown">
+                            <div class="lang-option" onclick="translateText('zh-CN')">
+                                <img src="./assets/country/China.png" alt="简体中文" class="flag-icon">
+                                <span class="lang-text">简体中文</span>
+                            </div>
+                            <div class="lang-option" onclick="translateText('zh-TW')">
+                                <img src="./assets/country/China.png" alt="繁體中文" class="flag-icon">
+                                <span class="lang-text">繁體中文</span>
+                            </div>
+                            <div class="lang-option" onclick="translateText('en')">
+                                <img src="./assets/country/America.png" alt="English" class="flag-icon">
+                                <span class="lang-text">English</span>
+                            </div>
+                            <div class="lang-option" onclick="translateText('ko')">
+                                <img src="./assets/country/Korea.png" alt="한국어" class="flag-icon">
+                                <span class="lang-text">한국어</span>
+                            </div>
+                            <div class="lang-option" onclick="translateText('ja')">
+                                <img src="./assets/country/Japan.png" alt="日本語" class="flag-icon">
+                                <span class="lang-text">日本語</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="wallpaper-switcher" id="wallpaper-switcher">
+                        <div class="wallpaper-btn-icon" id="wallpaperIconBtn" onclick="changeWallpaper()" title="切换壁纸">
+                            <i class="fas fa-image"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="bgcolor-switcher" id="bgcolor-switcher">
+                        <div class="bgcolor-btn-icon" id="bgcolorIconBtn" onclick="changeBackgroundColor()" title="切换背景颜色">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 个人介绍 -->
+                <h1 id="title">你好，我是陈阳！</h1>
+                <p class="translated-paragraph" id="intro">
+                    很高兴你能找到这里！在这里，你可以查看我的博客及旅行相册并使用我的工具箱。<br>
+                    我将数据转化为温暖的电信号愉悦的与你共享。
+                </p>
+                
+                <!-- 主要功能按钮 -->
+                <p id="catch-me">找到我：</p>
+                <div class="row">
+                    <a href="http://blog.rpzm.com" target="_blank" id="kaygb-blog-a" class="btn btn-blog col-lg-3">博客</a>
+                    <a href="/photos/index.shtml" target="_blank" class="btn btn-photo col-lg-3">照片</a>
+                    <a href="/tools/index.shtml" target="_blank" class="btn btn-tool col-lg-3">工具</a>
+                    <a href="mailto:eric@rpzm.com" id="kaygb-mail-a" class="btn btn-mail col-lg-3">邮件</a>
+                </div>
+
+				<!-- 社交链接 -->
+				<h4 class="mt-4" id="follow-me">或者，关注我：</h4>
+				<ul class="social mt-1">
+					<li><a href="https://t.me/uncbox" target="_blank" title="Telegram: @uncbox" id="telegram-link"><i class="fab fa-telegram" aria-hidden="true"></i></a></li>
+					<li><a href="mailto:boxpdu@gmail.com.com" title="发送邮件" id="google-link"><i class="fa-brands fa-google" aria-hidden="true"></i></a></li>
+					<li><a href="javascript:void(0);" title="微信: routetable" onclick="showWechatQR()" id="wechat-link"><i class="fab fa-weixin" aria-hidden="true"></i></a></li>
+					<li><a href="javascript:void(0);" title="更多联系方式" onclick="showMoreContacts()" id="more-contact"><i class="fas fa-ellipsis-h" aria-hidden="true"></i></a></li>
+				</ul>
+                
+                <!-- 短分割线 -->
+                <div class="short-divider"></div>
+                
+                <!-- 页脚和导航 -->
+                <footer>
+                    <p>
+						<!-- 原模态框功能暂时注释，保留以备后用 -->
+                        <!-- <a href="javascript:void(0);" onclick="showHistoryModal()" id="history-link"><b>建站历史</b></a> | -->
+						<a href="https://blog.rpzm.com/about.html" target="_blank" id="history-link"><b>建站历史</b></a> | 
+						<a href="https://blog.rpzm.com/feed" target="_blank"><b>RSS</b> | 
+                        <a href="./resume/cv.pdf" target="_blank" id="resume-link"><b>个人简历</b></a> |
+					<!-- 原模态框功能暂时注释，保留以备后用 -->
+					<!-- <a href="javascript:void(0);" onclick="showFriendsModal()" id="friends-link"><b>我的朋友们</b></a> | -->
+                        <a href="https://blog.rpzm.com/links.html" target="_blank" id="friends-link"><b>我的朋友们</b></a> | 
+						<!-- 原模态框功能暂时注释，保留以备后用 -->
+                        <!-- <a href="javascript:void(0);" onclick="showDomainModal()" id="domains-link"><b>我的米表</b></a> |  -->
+						<a href="https://blog.rpzm.com/domains.html" target="_blank" id="domains-link"><b>我的米表</b></a> | 
+                        <a href="javascript:void(0);" onclick="showDisclaimerModal()" id="disclaimer-link"><b>免责声明</b></a><br>
+                        <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2024099071号-2</a>
+                        <img src="./assets/image/gaba.png" alt="公安备案图标" style="width: 16px; height: 1.4em;">
+                        <a href="https://beian.mps.gov.cn/#/query/webSearch?code=51010802033147" target="_blank">
+                        川公网安备51010802033147号</a><br>
+                        <span id="copyright">版权所有 2024 - <span id="currentYear"></span> 如品之茗</span> | 
+                        <span id="domain-age-text">域名年龄: <span id="domainAge"></span>年</span>
+                        <!-- 服务器状态指示灯 -->
+                        <span class="server-status-wrapper">
+                            <span class="server-status-label">网站状态</span>
+                            <span id="statusLight" class="server-status-light normal"></span>
+                            <span id="statusText" class="server-status-text normal">正常</span>
+                        <span id="site-time-text">已稳定运行: <span id="days"></span> 天 (<span id="years"></span> 年 <span id="remainingDays"></span> 天)</span>
+                    </p>
+                </footer>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript文件 -->
+    <script src="./js/main.js"></script>
+    <script src="./js/wallpaper.js"></script>
+    <script src="./js/language.js"></script>
+    <script src="./js/modals.js"></script>
+    <script src="./js/mobile-optimize.js"></script>
+    <script src="./js/data-translations.js"></script>
+    <script src="./js/data-domains.js"></script>
+    <script src="./js/data-friends.js"></script>
+    <script src="./js/data-content.js"></script>
+    <script src="./js/init.js"></script>
+	
+	<!-- NO-AI 图标（固定在右下角） -->
+    <a href="#" target="_blank" rel="noopener noreferrer" 
+       style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; width: 50px; height: 50px; opacity: 0.8; transition: opacity 0.3s ease;"
+       onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'"
+       title="本网站不使用AI生成内容">
+       <img src="https://no-ai-icon.com/wp-content/uploads/2023/02/no-ai-icon-07.svg" 
+            alt="NO-AI" style="width: 100%; height: 100%; display: block;">
+    </a>
+</body>
+</html>

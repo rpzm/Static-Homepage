@@ -1,0 +1,286 @@
+/* 响应式设计 - 桌面端 */
+@media (max-width: 1100px) {
+    .friends-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 响应式设计 - 平板端 */
+@media (max-width: 768px) {
+    .friends-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        overflow-y: visible;
+    }
+    
+    .friend-card {
+        padding: 15px;
+    }
+    
+    .friend-avatar {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .friend-name {
+        font-size: 16px;
+    }
+    
+    .modal-content {
+        width: 92%;
+        max-height: 85vh;
+        margin: 15px auto;
+        border-radius: 12px;
+    }
+
+    .friend-link-tip {
+        padding: 20px;
+        max-width: 90%;
+        max-height: 85vh;
+    }
+
+    .tip-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tip-btn {
+        width: 100%;
+        padding: 12px;
+    }
+    
+    #friendsModalBody {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 10px;
+    }
+    
+    .friend-description {
+        font-size: 12px;
+        min-height: 50px;
+    }
+}
+
+/* 响应式设计 - 移动端 */
+@media (max-width: 480px) {
+    .friends-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .friend-avatar {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .friend-name {
+        font-size: 15px;
+    }
+    
+    .friend-description {
+        font-size: 11px;
+        min-height: 45px;
+        padding: 8px;
+    }
+    
+    .modal-content {
+        width: 90%;
+        max-height: 80vh;
+        margin: 10px auto;
+        border-radius: 10px;
+    }
+    
+    .modal-body {
+        padding: 15px;
+    }
+    
+    .friend-link-tip {
+        max-height: 80vh;
+        padding: 15px;
+    }
+    
+    .tip-content {
+        max-height: 40vh;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    .domain-item {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .domain-name {
+        word-break: break-all;
+    }
+}
+
+/* 移动端触控优化 */
+@media (hover: none) and (pointer: coarse) {
+    .friend-card:hover {
+        transform: none;
+    }
+    
+    .friend-card:active {
+        transform: scale(0.98);
+    }
+    
+    .close-btn:active {
+        transform: scale(0.9);
+    }
+    
+    .tip-btn:active {
+        transform: scale(0.95) !important;
+    }
+    
+    .wallpaper-btn-icon:active,
+    .bgcolor-btn-icon:active,
+    .lang-btn-icon:active {
+        transform: scale(0.9);
+    }
+}
+
+/* 建站历史样式 */
+.history-item {
+    background: rgba(248, 249, 250, 0.5);
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-left: 4px solid #17a2b8;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.history-item:hover {
+    background: rgba(248, 249, 250, 0.7);
+    transform: translateX(5px);
+}
+
+.history-timeline {
+    position: relative;
+    padding: 20px 0;
+    margin: 30px 0;
+}
+
+.history-timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #007bff, #17a2b8);
+    border-radius: 1px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 25px;
+}
+
+.timeline-year {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #007bff;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    min-width: 60px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 123, 255, 0.3);
+    z-index: 1;
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.history-note {
+    background: linear-gradient(135deg, rgba(255, 243, 205, 0.5), rgba(212, 237, 218, 0.5));
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-style: italic;
+    backdrop-filter: blur(5px);
+}
+
+.history-note i {
+    margin-right: 10px;
+    color: #ffc107;
+}
+
+/* 响应式设计 - 平板端 */
+@media (max-width: 768px) {
+    .history-timeline::before {
+        left: 15px;
+    }
+    
+    .timeline-item {
+        padding-left: 40px;
+    }
+    
+    .timeline-year {
+        font-size: 12px;
+        padding: 4px 10px;
+        min-width: 50px;
+    }
+    
+    .top-buttons-container {
+        top: 10px;
+        right: 10px;
+        gap: 8px;
+    }
+    
+    .lang-btn-icon, .wallpaper-btn-icon, .bgcolor-btn-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+    
+    .wallpaper-switcher,
+    .bgcolor-switcher {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-buttons-container {
+        gap: 6px;
+    }
+    
+    .lang-btn-icon, .wallpaper-btn-icon, .bgcolor-btn-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 360px) {
+    .top-buttons-container {
+        gap: 5px;
+    }
+    
+    .lang-btn-icon, .wallpaper-btn-icon, .bgcolor-btn-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+}

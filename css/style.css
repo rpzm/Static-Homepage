@@ -1,0 +1,439 @@
+body {
+    font-size: 18px;
+    color: #6c767d;
+    background-color: #ebf1f5;
+    background-color: lightskyblue;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    min-height: 800px;
+}
+
+/* 定义滚动条高度和背景 高度宽度分别对应竖横滚动条的尺寸 */
+::-webkit-scrollbar {
+    width: 5px;
+    /* height: 5px; */
+    background-color: #F5F5F5;
+}
+
+/* 定义滚动条轨道 内阴影+圆角 */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+/* 定义滑块 内阴影+圆角 */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: .5em;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-top: 1em;
+}
+
+h4 {
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: black;
+}
+
+.card {
+    border: none;
+    padding: 80px 80px 0px;
+    border-radius: 0;
+	background-color: rgba(255, 255, 255, 0.85);
+}
+
+.container {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.my-card {
+    /* box-shadow: 0px 5px 15px 5px rgb(203, 221, 232); */
+}
+
+strike {
+    color: red;
+}
+
+.btn {
+    border-radius: 0;
+    margin: 5px 0;
+    width: 100%;
+    padding: 12px 40px;
+    transition: ease;
+}
+
+.btn-primary {
+    /* box-shadow: 0px 5px 15px 5px rgb(203, 221, 232); */
+    padding: 12px 40px;
+    transition: ease;
+}
+
+.btn-primary:hover {
+    box-shadow: 5px -2px 15px 0px rgb(203, 221, 232);
+}
+
+.btn-secondary {
+    /* box-shadow: 0px 5px 15px 5px rgb(203, 221, 232); */
+    padding: 12px 40px;
+    transition: ease;
+}
+
+.btn-secondary:hover {
+    box-shadow: 5px -2px 15px 0px rgb(203, 221, 232);
+}
+
+.btn-success {
+    /* box-shadow: 0px 5px 15px 5px rgb(203, 221, 232); */
+    padding: 12px 40px;
+    transition: ease;
+}
+
+.btn-success:hover {
+    box-shadow: 5px -2px 15px 0px rgb(203, 221, 232);
+}
+
+.social {
+    padding-left: 0;
+}
+
+.social p {
+    margin-bottom: 0;
+}
+
+.social li {
+    list-style: none;
+    float: left;
+    margin-right: 15px;
+}
+
+.card-text {
+    margin-bottom: 20px;
+}
+
+.social .fa {
+    font-size: 24px;
+}
+
+.photo-bg {
+    /* background-image: url(assets/background.jpg); */
+    background-image: url(../assets/wallpapers/4.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer p {
+    font-size: 12px;
+}
+
+/* 
+#kaygb-blog-a,
+#kaygb-mail-a {
+    display: none; 
+} */
+
+@media (max-width: 1199px) {
+    body {
+        min-height: 600px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    h2,
+    .social .fa {
+        font-size: 20px;
+    }
+    h3 {
+        font-size: 16px;
+    }
+    h4,
+    p {
+        font-size: 14px;
+    }
+    .card {
+        padding: 50px 50px 0px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .photo-bg {
+        min-height: calc(100vh - 500px);
+    }
+}
+
+@media(max-width:991px) {
+    .photo-bg {
+        background-position: top;
+        min-height: calc(90vh - 440px);
+    }
+}
+
+@media(max-width: 767px) {
+    .container {
+        position: relative;
+        top: 0;
+        transform: translateY(0);
+    }
+    .photo-bg {
+        height: 180px;
+    }
+    .card {
+        padding: 20px;
+    }
+    #kaygb-blog-a,
+    #kaygb-mail-a {
+        display: block;
+    }
+    #kaygb-blog,
+    #kaygb-mail {
+         display: none;
+    }
+}
+
+#frame {
+    width: 50%;
+    height: 50vh;
+    margin: 0;
+    background: #fff;
+    position: fixed;
+    z-index: 999;
+    top: 5%;
+    left: 5%;
+}
+
+#aplayer {
+    z-index: 20000000;
+}
+
+/* 添加缺失的样式 */
+#translation-buttons {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#translation-buttons button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* 自定义按钮颜色 */
+.btn-blog {
+    background-color: #FF6B6B !important; /* 柔和的珊瑚红 */
+    border-color: #FF6B6B !important;
+    color: white !important;
+}
+
+.btn-blog:hover {
+    background-color: #FF5252 !important;
+    border-color: #FF5252 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 107, 107, 0.3);
+}
+
+.btn-photo {
+    background-color: #4ECDC4 !important; /* 清新的青绿色 */
+    border-color: #4ECDC4 !important;
+    color: white !important;
+}
+
+.btn-photo:hover {
+    background-color: #26A69A !important;
+    border-color: #26A69A !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(78, 205, 196, 0.3);
+}
+
+.btn-tool {
+    background-color: #FFD166 !important; /* 温暖的黄色 */
+    border-color: #FFD166 !important;
+    color: #333 !important;
+}
+
+.btn-tool:hover {
+    background-color: #FFCA28 !important;
+    border-color: #FFCA28 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 209, 102, 0.3);
+}
+
+.btn-mail {
+    background-color: #06D6A0 !important; /* 活力的绿色 */
+    border-color: #06D6A0 !important;
+    color: white !important;
+}
+
+.btn-mail:hover {
+    background-color: #00C853 !important;
+    border-color: #00C853 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(6, 214, 160, 0.3);
+}
+
+/* 按钮通用样式 */
+.btn {
+    transition: all 0.3s ease !important;
+    margin: 5px;
+    font-weight: 500;
+    border-radius: 8px !important;
+    padding: 10px 0 !important;
+}
+
+/* 响应式调整 */
+@media (max-width: 991.98px) {
+    .btn {
+        margin: 3px;
+    }
+}
+
+/* 按钮容器调整 */
+.row > .btn {
+    flex: 1;
+    min-width: 120px;
+}
+
+/* 服务器状态指示灯样式 - 优化版 */
+.server-status-wrapper {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.server-status-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.server-status-label {
+    font-size: 12px;
+    color: #6c767d;
+    white-space: nowrap;
+}
+
+.server-status-light {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #7f8c8d;
+    position: relative;
+    vertical-align: middle;
+}
+
+/* 绿色闪烁动画 - 正常状态 */
+.server-status-light.normal {
+    background-color: #2ecc71;
+    box-shadow: 0 0 6px #2ecc71;
+    animation: blink-green 1.5s infinite;
+}
+
+/* 红色闪烁动画 - 异常状态 */
+.server-status-light.error {
+    background-color: #e74c3c;
+    box-shadow: 0 0 6px #e74c3c;
+    animation: blink-red 1.5s infinite;
+}
+
+/* 绿色闪烁动画定义 */
+@keyframes blink-green {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 6px #2ecc71;
+    }
+    50% {
+        opacity: 0.5;
+        box-shadow: 0 0 3px #2ecc71;
+    }
+}
+
+/* 红色闪烁动画定义 */
+@keyframes blink-red {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 6px #e74c3c;
+    }
+    50% {
+        opacity: 0.5;
+        box-shadow: 0 0 3px #e74c3c;
+    }
+}
+
+/* 状态文本 */
+.server-status-text {
+    font-size: 12px;
+    color: #6c767d;
+    white-space: nowrap;
+    transition: color 0.3s;
+}
+
+.server-status-text.normal {
+    color: #2ecc71;
+}
+
+.server-status-text.error {
+    color: #e74c3c;
+}
+
+/* 响应式调整 */
+@media (max-width: 767px) {
+    .server-status-wrapper {
+        display: block;
+        margin-left: 0;
+        margin-top: 5px;
+    }
+    
+    .server-status-container {
+        display: flex;
+        justify-content: flex-start;
+    }
+    
+    .server-status-label,
+    .server-status-text {
+        font-size: 11px;
+    }
+    
+    .server-status-light {
+        width: 9px;
+        height: 9px;
+    }
+}
+
+/* 针对小屏幕的进一步优化 */
+@media (max-width: 575px) {
+    footer p {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+    
+    .server-status-wrapper {
+        margin-top: 3px;
+    }
+}

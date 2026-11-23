@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面未找到</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #2a56b9, #3a6fd8);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 背景动画效果 */
+        .bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 15s infinite linear;
+        }
+        
+        .circle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .circle:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 20%;
+            right: 15%;
+            animation-delay: -2s;
+        }
+        
+        .circle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 15%;
+            animation-delay: -4s;
+        }
+        
+        .circle:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            bottom: 10%;
+            right: 10%;
+            animation-delay: -6s;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            padding: 40px;
+            z-index: 1;
+        }
+        
+        .error-code {
+            font-size: 180px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
+            letter-spacing: 8px;
+            color: white;
+            opacity: 0.9;
+        }
+        
+        .error-title {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .error-description {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        .countdown-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 40px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .countdown-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .countdown-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffdd40;
+            text-shadow: 0 0 10px rgba(255, 221, 64, 0.5);
+        }
+        
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            margin-top: 10px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .home-button i {
+            margin-right: 12px;
+            font-size: 22px;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .error-code {
+                font-size: 120px;
+                letter-spacing: 5px;
+            }
+            
+            .error-title {
+                font-size: 28px;
+            }
+            
+            .error-description {
+                font-size: 18px;
+            }
+            
+            .countdown-number {
+                font-size: 36px;
+            }
+            
+            .home-button {
+                padding: 16px 35px;
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 90px;
+                letter-spacing: 3px;
+            }
+            
+            .error-title {
+                font-size: 24px;
+            }
+            
+            .error-description {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景动画元素 -->
+    <div class="bg-animation">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    
+    <div class="container">
+        <h1 class="error-code">404</h1>
+        <h2 class="error-title">页面未找到</h2>
+        <p class="error-description">
+            抱歉，您访问的页面不存在或已被移动。
+            <br>系统将在 <span id="countdown">5</span> 秒后自动返回主页。
+        </p>
+        
+        <div class="countdown-container">
+            <div class="countdown-text">自动返回倒计时</div>
+            <div class="countdown-number" id="countdown-display">5</div>
+        </div>
+        
+        <a href="https://rpzm.com" class="home-button" id="homeButton">
+            <i class="fas fa-home"></i> 立即返回主页
+        </a>
+    </div>
+    
+    <div class="footer">
+        <p>© 2026 rpzm.com 保留所有权利。</p>
+    </div>
+
+    <script>
+        // 倒计时功能
+        let countdown = 5;
+        const countdownElement = document.getElementById('countdown');
+        const countdownDisplay = document.getElementById('countdown-display');
+        const homeButton = document.getElementById('homeButton');
+        
+        // 更新倒计时显示
+        function updateCountdown() {
+            countdownElement.textContent = countdown;
+            countdownDisplay.textContent = countdown;
+            
+            if (countdown <= 0) {
+                // 倒计时结束，跳转到主页
+                window.location.href = 'https://rpzm.com';
+            } else {
+                countdown--;
+                // 每秒更新一次
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+        
+        // 启动倒计时
+        updateCountdown();
+        
+        // 返回主页按钮点击事件
+        homeButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // 添加点击动画
+            this.style.transform = 'scale(0.95)';
+            this.style.background = 'rgba(255, 255, 255, 0.4)';
+            
+            // 延迟跳转以显示动画效果
+            setTimeout(() => {
+                window.location.href = 'https://rpzm.com';
+            }, 200);
+        });
+        
+        // 添加键盘支持：按任意键立即返回主页
+        document.addEventListener('keydown', function() {
+            window.location.href = 'https://rpzm.com';
+        });
+        
+        // 点击页面任意位置也可立即返回
+        document.addEventListener('click', function(e) {
+            // 如果不是点击在按钮上，则跳转
+            if (!homeButton.contains(e.target)) {
+                window.location.href = 'https://rpzm.com';
+            }
+        });
+    </script>
+</body>
+</html>
